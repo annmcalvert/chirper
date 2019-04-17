@@ -53,7 +53,7 @@ class CreateChirp extends Component {
                     />
                 </label>
                 <br />
-                <button onClick={this.handleClick}>Submit</button>
+                <button class="btn btn-primary" onClick={this.handleClick}>Submit</button>
 
             </>
         )

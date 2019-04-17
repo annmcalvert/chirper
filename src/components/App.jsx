@@ -27,10 +27,9 @@ class Chirp extends Component {
     insertChirp = (e) => {
         this.setState(prevState => ({
             chirps: [e, ...prevState.chirps]
-
         })
         );
-        // state.chirps.map(chirp => <DisplayChirp />);
+        
     }
 
 
@@ -40,17 +39,18 @@ class Chirp extends Component {
             <>
 
                 <div class="d-flex container">
-                    <div class="row  justify-content-center align-items-center">>
-                    <div class="col">
+                    <div class="row">
+                        <div class="col">
                             <h1>Chirper</h1>
                         </div>
                     </div>
                 </div>
-                <CreateChirp insertChirp={this.insertChirp} />
-                {this.state.chirps.map(chirp => <DisplayChirp chirp={chirp} />)}
-
-
-
+                <div class="d-flex flex-column">
+                    <div class="row justify-content-center">
+                        <CreateChirp insertChirp={this.insertChirp} />
+                        {this.state.chirps.map(chirp => <DisplayChirp chirp={chirp} />)}
+                    </div>
+                </div>
 
 
             </>
