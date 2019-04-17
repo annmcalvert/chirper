@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const BuildChirp = (props) => {
+const DisplayChirp = (props) => {
     return (
         <>
             <h4>{props.chirp.user}</h4>
@@ -11,4 +11,4 @@ const BuildChirp = (props) => {
 };
 
 
-export default BuildChirp;
+export default DisplayChirp;

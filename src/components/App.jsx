@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import chirpsMap from './components/ChirpsMap';
-import BuildChirp from './BuildChirp';
+import DisplayChirp from './DisplayChirp';
+import CreateChirp from './CreateChirp';
 
 class Chirp extends Component {
     constructor(props) {
@@ -24,40 +24,32 @@ class Chirp extends Component {
     }
 
 
-    handleSubmit = (e) => {
+    insertChirp = (e) => {
         this.setState(prevState => ({
-            chirps: [...prevState.chirps, e]
+            chirps: [e, ...prevState.chirps]
+
         })
         );
+        // state.chirps.map(chirp => <DisplayChirp />);
     }
+
 
 
     render() {
         return (
             <>
-                <h1>Chirper</h1>
 
-                <form onSubmit={this.handleSubmit}>
-                    <label>Name:
-                <input
-                            name="user"
-                            type="text"
-                        />
-                    </label>
-                    <br />
-                    <label>Chirp:
-                <input
-                            name="text"
-                            type="text"
-                        />
-                    </label>
-                    <br />
-                    <input type="submit" value="Submit" />
-                </form>
+                <div class="d-flex container">
+                    <div class="row  justify-content-center align-items-center">>
+                    <div class="col">
+                            <h1>Chirper</h1>
+                        </div>
+                    </div>
+                </div>
+                <CreateChirp insertChirp={this.insertChirp} />
+                {this.state.chirps.map(chirp => <DisplayChirp chirp={chirp} />)}
 
 
-
-                {this.state.chirps.map(chirp => <BuildChirp chirp={chirp} />)}
 
 
 
