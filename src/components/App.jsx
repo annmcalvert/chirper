@@ -12,7 +12,7 @@ class Chirp extends Component {
                     user: 'Ann'
                 },
                 {
-                    text: 'Hi, it is me!',
+                    text: "Hi, it's me!",
                     user: 'Everett'
                 },
                 {
@@ -23,40 +23,21 @@ class Chirp extends Component {
         };
     }
 
-
     insertChirp = (e) => {
-        this.setState(prevState => ({
-            chirps: [e, ...prevState.chirps]
-        })
-        );
-        
+        this.setState({
+            chirps: [e, ...this.state.chirps]
+        });
     }
-
-
 
     render() {
         return (
-            <>
-
-                <div class="d-flex container">
-                    <div class="row">
-                        <div class="col">
-                            <h1>Chirper</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex flex-column">
-                    <div class="row justify-content-center">
-                        <CreateChirp insertChirp={this.insertChirp} />
-                        {this.state.chirps.map(chirp => <DisplayChirp chirp={chirp} />)}
-                    </div>
-                </div>
-
-
-            </>
+            <div className="container">
+                <h1>Chirper</h1>
+                <CreateChirp insertChirp={this.insertChirp} />
+                {this.state.chirps.map(chirp => <DisplayChirp chirp={chirp} />)}
+            </div>
         )
     }
 }
-
 
 export default Chirp;
